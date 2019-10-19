@@ -1,0 +1,21 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "bookmarks-prod-20191017211526-authRole",
+            "UnauthRoleArn": "arn:aws:iam::014612444693:role/bookmarks-prod-20191017211526-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::014612444693:role/bookmarks-prod-20191017211526-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "bookmarks-prod-20191017211526-deployment",
+            "UnauthRoleName": "bookmarks-prod-20191017211526-unauthRole",
+            "StackName": "bookmarks-prod-20191017211526",
+            "StackId": "arn:aws:cloudformation:eu-west-1:014612444693:stack/bookmarks-prod-20191017211526/dc3d4f40-f11a-11e9-8305-0a1f01fad44c"
+        },
+        "categories": {
+            "auth": {
+                "bookmarks58417305": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"787268057706-jsj4li27fetcavhrm9jdl7ro9g0t89kc.apps.googleusercontent.com\",\"client_secret\":\"shuMfxKPJFVm5jx8BW-g9khQ\"}]"
+                }
+            }
+        }
+    }
+}

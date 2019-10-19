@@ -1,0 +1,9 @@
+type Bookmark @model @auth(
+  rules: [
+    {allow: owner, ownerField: "owner", operations: [create, update, delete, read]},
+  ]) {
+  id: ID!
+  name: String!
+  url: String!
+  owner: String
+}
