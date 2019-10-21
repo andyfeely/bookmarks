@@ -18,7 +18,6 @@ Vue.config.productionTip = false;
 Amplify.configure(config);
 Vue.use(AmplifyPlugin, AmplifyModules);
 Vue.use(VueMateria);
-
 const apolloConfig = {
   url: config.aws_appsync_graphqlEndpoint,
   region: config.aws_appsync_region,
