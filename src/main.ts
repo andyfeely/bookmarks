@@ -1,6 +1,8 @@
 import Vue from 'vue';
+// @ts-ignore
 import VueMateria from '@materiajs/vue-materia';
 import Amplify, * as AmplifyModules from 'aws-amplify';
+// @ts-ignore
 import { AmplifyPlugin } from 'aws-amplify-vue';
 import AWSAppSyncClient from 'aws-appsync';
 import VueApollo from 'vue-apollo';
