@@ -41,6 +41,10 @@
     "node_modules"
   ],
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "object-literal-sort-keys": false
   },
+  "jsRules": {
+    "object-literal-sort-keys": false
+  }
 }
