@@ -1,10 +1,7 @@
 import Vue from 'vue';
-// @ts-ignore
 import VueMateria from '@materiajs/vue-materia';
 import Amplify, * as AmplifyModules from 'aws-amplify';
-// @ts-ignore
 import { AmplifyPlugin } from 'aws-amplify-vue';
-// @ts-ignore
 import AWSAppSyncClient from 'aws-appsync';
 import VueApollo from 'vue-apollo';
 import App from './App.vue';
@@ -13,7 +10,6 @@ import router from './router';
 import store from './store';
 // @ts-ignore
 import config from './aws-exports';
-
 
 Vue.config.productionTip = false;
 

@@ -28,11 +28,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import gql from 'graphql-tag';
 // @ts-ignore
 import { components } from 'aws-amplify-vue';
-import { Auth, API, graphqlOperation } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import CreateBookmark from '@/components/CreateBookmark.vue';
 import { listBookmarks } from '../graphql/queries';
 import { onCreateBookmark } from '@/graphql/subscriptions';
-import api from '../API';
 import Bookmark from '@/components/Bookmark.vue';
 import { deleteBookmark } from '@/graphql/mutations';
 
@@ -55,7 +54,7 @@ export default class Bookmarks extends Vue {
 
     created() {
       Auth.currentAuthenticatedUser()
-        .then((data) => {
+        .then((data: any) => {
           this.owner = data.username;
           this.$apollo.queries.listBookmarks.subscribeToMore({
             document: gql(onCreateBookmark),
@@ -73,7 +72,7 @@ export default class Bookmarks extends Vue {
         });
     }
 
-    deleteBookmark(bookmark) {
+    deleteBookmark(bookmark: any) {
       this.$apollo.mutate({
         mutation: gql(deleteBookmark),
         variables: {
@@ -83,8 +82,8 @@ export default class Bookmarks extends Vue {
         },
         update: (store, { data: { deleteBookmark: deleted } }) => {
           // Read the data from our cache for this query.
-          const data = store.readQuery({ query: gql(listBookmarks) });
-          const idx = data.listBookmarks.items.findIndex(i => i.id === deleted.id);
+          const data: any = store.readQuery({ query: gql(listBookmarks) });
+          const idx = data.listBookmarks.items.findIndex((i: any) => i.id === deleted.id);
           data.listBookmarks.items.splice(
             idx,
             1,
@@ -103,10 +102,7 @@ export default class Bookmarks extends Vue {
         // Result
         // console.log(data);
       }).catch((error) => {
-        // Error
         console.error(error);
-        // We restore the initial user input
-        this.newTag = newTag;
       });
     }
 }

@@ -73,7 +73,7 @@ export default class AuthComponent extends Vue {
     // eslint-disable-next-line
     async googleSignIn() {
       // @ts-ignore
-      console.log('hello');
+      // eslint-disable-next-line
       Auth.federatedSignIn({ provider: 'Google' });
     }
 
