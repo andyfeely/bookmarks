@@ -9,7 +9,7 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 // @ts-ignore
-import config from './aws-exports';
+const config = require('./aws-exports').default;
 
 Vue.config.productionTip = false;
 
