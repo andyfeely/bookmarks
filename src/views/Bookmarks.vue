@@ -98,12 +98,7 @@ export default class Bookmarks extends Vue {
           __typename: 'Mutation',
           deleteBookmark: bookmark,
         },
-      }).then((data) => {
-        // Result
-        // console.log(data);
-      }).catch((error) => {
-        console.error(error);
-      });
+      }).then(() => {});
     }
 }
 </script>

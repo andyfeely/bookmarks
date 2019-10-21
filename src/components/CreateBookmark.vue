@@ -37,9 +37,7 @@ export default {
     },
   },
   methods: {
-    onCreateFinished() {
-      console.log('Todo created!');
-    },
+    onCreateFinished() {},
   },
 };
 </script>

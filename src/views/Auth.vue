@@ -66,7 +66,6 @@ export default class AuthComponent extends Vue {
     }
 
     signOut() {
-      console.log('signing out');
       Auth.signOut();
       this.menu = false;
     }
@@ -81,13 +80,11 @@ export default class AuthComponent extends Vue {
       Auth.currentUserInfo()
         .then((data) => {
           if (data) {
-            console.log(data);
             this.loggedIn = true;
             this.username = data.attributes.name;
             this.picture = data.attributes.picture;
           }
-        })
-        .catch(err => console.log(err));
+        });
     }
 }
 
