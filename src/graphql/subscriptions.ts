@@ -1,8 +1,8 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBookmark = `subscription OnCreateBookmark {
-  onCreateBookmark {
+export const onCreateBookmark = `subscription OnCreateBookmark($owner: String!) {
+  onCreateBookmark(owner: $owner) {
     id
     name
     url

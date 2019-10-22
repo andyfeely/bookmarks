@@ -58,6 +58,9 @@ export default class Bookmarks extends Vue {
           this.owner = data.username;
           this.$apollo.queries.listBookmarks.subscribeToMore({
             document: gql(onCreateBookmark),
+            variables: {
+              owner: this.owner,
+            },
             updateQuery: (previousResult, { subscriptionData }) => {
               // Here, return the new result from the previous with the new data
               previousResult.listBookmarks
