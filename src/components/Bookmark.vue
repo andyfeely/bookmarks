@@ -4,7 +4,7 @@
       :mutation="deleteBookmarkMutation"
       @done="onDeleteFinished">
 <!--      <template slot-scope="{ loading, mutate }">-->
-        {{ bookmark }}
+        {{ bookmark.name }} {{ bookmark.url }}
         <mat-button @click="$emit('delete', bookmark)">DELETE</mat-button>
 <!--      </template>-->
     </amplify-connect>
