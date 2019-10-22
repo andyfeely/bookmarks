@@ -60,8 +60,8 @@ export type CreateBookmarkMutationVariables = {
 };
 
 export type CreateBookmarkMutation = {
-  createBookmark: {
-    __typename: 'Bookmark',
+  createBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -74,8 +74,8 @@ export type UpdateBookmarkMutationVariables = {
 };
 
 export type UpdateBookmarkMutation = {
-  updateBookmark: {
-    __typename: 'Bookmark',
+  updateBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -88,8 +88,8 @@ export type DeleteBookmarkMutationVariables = {
 };
 
 export type DeleteBookmarkMutation = {
-  deleteBookmark: {
-    __typename: 'Bookmark',
+  deleteBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -102,8 +102,8 @@ export type GetBookmarkQueryVariables = {
 };
 
 export type GetBookmarkQuery = {
-  getBookmark: {
-    __typename: 'Bookmark',
+  getBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -118,10 +118,10 @@ export type ListBookmarksQueryVariables = {
 };
 
 export type ListBookmarksQuery = {
-  listBookmarks: {
-    __typename: 'ModelBookmarkConnection',
-    items: Array< {
-      __typename: 'Bookmark',
+  listBookmarks:  {
+    __typename: "ModelBookmarkConnection",
+    items:  Array< {
+      __typename: "Bookmark",
       id: string,
       name: string,
       url: string,
@@ -136,8 +136,8 @@ export type OnCreateBookmarkSubscriptionVariables = {
 };
 
 export type OnCreateBookmarkSubscription = {
-  onCreateBookmark: {
-    __typename: 'Bookmark',
+  onCreateBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -150,8 +150,8 @@ export type OnUpdateBookmarkSubscriptionVariables = {
 };
 
 export type OnUpdateBookmarkSubscription = {
-  onUpdateBookmark: {
-    __typename: 'Bookmark',
+  onUpdateBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
@@ -164,8 +164,8 @@ export type OnDeleteBookmarkSubscriptionVariables = {
 };
 
 export type OnDeleteBookmarkSubscription = {
-  onDeleteBookmark: {
-    __typename: 'Bookmark',
+  onDeleteBookmark:  {
+    __typename: "Bookmark",
     id: string,
     name: string,
     url: string,
