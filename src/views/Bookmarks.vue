@@ -16,7 +16,6 @@
         v-for="bookmark in listBookmarks ? listBookmarks.items : []"
         :key="bookmark.id"
         :href="bookmark.url"
-        @click="() => onClickBookmark(bookmark)"
       >
         <bookmark
           :bookmark="bookmark"
@@ -98,10 +97,6 @@ export default class Bookmarks extends Vue {
             },
           });
         });
-    }
-
-    onClickBookmark(bookmark: any) {
-      console.log(bookmark, this);
     }
 
     deleteBookmark(bookmark: any) {
