@@ -10,13 +10,13 @@
 <!--        <div v-if="loading">Loading...</div>-->
 
 <!--        <div v-else-if="errors.length > 0"></div>-->
-        <bookmark
+    <create-bookmark />
+    <bookmark
           v-for="bookmark in listBookmarks ? listBookmarks.items : []"
           :key="bookmark.id"
           :bookmark="bookmark"
           @delete="deleteBookmark"
         />
-        <create-bookmark />
 <!--      </template>-->
 <!--    </amplify-connect>-->
 
@@ -31,7 +31,7 @@ import { components } from 'aws-amplify-vue';
 import { Auth } from 'aws-amplify';
 import CreateBookmark from '@/components/CreateBookmark.vue';
 import { listBookmarks } from '../graphql/queries';
-import { onCreateBookmark } from '@/graphql/subscriptions';
+import { onCreateBookmark, onDeleteBookmark } from '@/graphql/subscriptions';
 import Bookmark from '@/components/Bookmark.vue';
 import { deleteBookmark } from '@/graphql/mutations';
 
@@ -66,6 +66,27 @@ export default class Bookmarks extends Vue {
               previousResult.listBookmarks
                 .items
                 .push(subscriptionData.data.onCreateBookmark);
+              return previousResult;
+            },
+          });
+          this.$apollo.queries.listBookmarks.subscribeToMore({
+            document: gql(onDeleteBookmark),
+            variables: {
+              owner: this.owner,
+            },
+            updateQuery: (previousResult, { subscriptionData }) => {
+              const deleted = subscriptionData.data.onDeleteBookmark;
+              const idx = previousResult
+                .listBookmarks
+                .items.findIndex((i: any) => i.id === deleted.id);
+              if (idx > -1) {
+                previousResult
+                  .listBookmarks
+                  .items.splice(
+                    idx,
+                    1,
+                  );
+              }
               return previousResult;
             },
           });
