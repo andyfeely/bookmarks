@@ -11,12 +11,19 @@
 
 <!--        <div v-else-if="errors.length > 0"></div>-->
     <create-bookmark />
-    <bookmark
-          v-for="bookmark in listBookmarks ? listBookmarks.items : []"
-          :key="bookmark.id"
+    <mat-list>
+      <mat-list-item
+        v-for="bookmark in listBookmarks ? listBookmarks.items : []"
+        :key="bookmark.id"
+        :href="bookmark.url"
+        @click="() => onClickBookmark(bookmark)"
+      >
+        <bookmark
           :bookmark="bookmark"
           @delete="deleteBookmark"
         />
+      </mat-list-item>
+    </mat-list>
 <!--      </template>-->
 <!--    </amplify-connect>-->
 
@@ -91,6 +98,10 @@ export default class Bookmarks extends Vue {
             },
           });
         });
+    }
+
+    onClickBookmark(bookmark: any) {
+      console.log(bookmark, this);
     }
 
     deleteBookmark(bookmark: any) {
