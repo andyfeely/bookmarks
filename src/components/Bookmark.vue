@@ -8,7 +8,9 @@
       alt="Logo"
       :style="{ flex: 0 }"
     >
-    <div class="bookmark-name">
+    <div
+      @click.self="onClickBookmark"
+      class="bookmark-name">
       {{ bookmark.name }}
     </div>
     <mat-menu v-model="menu">
