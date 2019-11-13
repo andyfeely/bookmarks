@@ -3,7 +3,14 @@
     class="bookmark"
     @click.self="onClickBookmark"
   >
-    {{ bookmark.name }}
+    <img
+      :src="getFavicon"
+      alt="Logo"
+      :style="{ flex: 0 }"
+    >
+    <div class="bookmark-name">
+      {{ bookmark.name }}
+    </div>
     <mat-menu v-model="menu">
       <template slot="trigger">
         <mat-button color="undefined">
@@ -47,23 +54,43 @@ export default class Bookmark extends Vue {
     );
   }
 
+  get getFavicon() {
+    let url;
+    try {
+      url = new URL(this.bookmark.url);
+    } catch (e) {
+      return `https://s2.googleusercontent.com/s2/favicons?domain_url=${this.bookmark.url}`;
+    }
+    const { protocol } = url;
+    const domain = url.hostname;
+    return `${protocol + domain}/favicon.ico`;
+  }
+
   onDeleteFinished() {
     this.$emit('deleted', this.bookmark);
   }
 
   onClickBookmark() {
-    console.log(this.bookmark);
     window.open(this.bookmark.url, '_blank');
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .bookmark {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+    &-name {
+      flex: 1;
+      font-size: 14px;
+      margin-left: 15px;
+    }
   }
 </style>
