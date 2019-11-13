@@ -63,7 +63,7 @@ export default class Bookmark extends Vue {
     }
     const { protocol } = url;
     const domain = url.hostname;
-    return `${protocol + domain}/favicon.ico`;
+    return `${protocol}//${domain}/favicon.ico`;
   }
 
   onDeleteFinished() {
