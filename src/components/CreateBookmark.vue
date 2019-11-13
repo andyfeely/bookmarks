@@ -2,11 +2,12 @@
   <div class="create-bookmark">
     <amplify-connect :mutation="createBookmarkMutation"
                      @done="onCreateFinished">
-      <template slot-scope="{ loading, mutate, errors }">
-        {{ errors }}
-        <mat-input v-model="name" placeholder="item name" />
-        <mat-input v-model="url" placeholder="item name" />
-        <button :disabled="loading" @click="mutate">Create Todo</button>
+      <template slot-scope="{ loading, mutate }">
+        <mat-input v-model="name" placeholder="Name" />
+        <br>
+        <mat-input v-model="url" placeholder="URL" />
+        <br>
+        <mat-button :disabled="loading" @click="mutate">Create Todo</mat-button>
       </template>
     </amplify-connect>
   </div>
