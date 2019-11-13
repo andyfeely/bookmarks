@@ -70,10 +70,6 @@ export default class Bookmark extends Vue {
   onDeleteFinished() {
     this.$emit('deleted', this.bookmark);
   }
-
-  onClickBookmark() {
-    window.open(this.bookmark.url, '_blank');
-  }
 }
 </script>
 
