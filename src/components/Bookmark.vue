@@ -1,18 +1,17 @@
 <template>
   <div
     class="bookmark"
-    @click.self="onClickBookmark"
   >
     <img
       :src="getFavicon"
       alt="Logo"
       :style="{ flex: 0 }"
     >
-    <div
-      @click.self="onClickBookmark"
+    <a
+      :href="bookmark.url"
       class="bookmark-name">
       {{ bookmark.name }}
-    </div>
+    </a>
     <mat-menu v-model="menu">
       <template slot="trigger">
         <mat-button color="undefined">
