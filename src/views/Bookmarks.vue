@@ -52,6 +52,9 @@ import { deleteBookmark } from '@/graphql/mutations';
   apollo: {
     listBookmarks: {
       query: gql(listBookmarks),
+      variables: {
+        limit: 500,
+      },
     },
   },
 })
@@ -114,7 +117,12 @@ export default class Bookmarks extends Vue {
       },
       update: (store, { data: { deleteBookmark: deleted } }) => {
         // Read the data from our cache for this query.
-        const data: any = store.readQuery({ query: gql(listBookmarks) });
+        const data: any = store.readQuery({
+          query: gql(listBookmarks),
+          variables: {
+            limit: 500,
+          },
+        });
         const idx = data.listBookmarks.items.findIndex((i: any) => i.id === deleted.id);
         data.listBookmarks.items.splice(
           idx,
