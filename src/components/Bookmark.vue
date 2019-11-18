@@ -9,6 +9,7 @@
     >
     <a
       :href="bookmark.url"
+      target="_blank"
       class="bookmark-name">
       {{ bookmark.name }}
     </a>
