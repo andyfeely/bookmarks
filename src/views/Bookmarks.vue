@@ -122,7 +122,8 @@ export default class Bookmarks extends Vue {
     const bookmarks = this.listBookmarks ? this.listBookmarks.items : [];
     if (this.searchString) {
       // @ts-ignore
-      return bookmarks.filter(bookmark => bookmark.name.toLowerCase().includes(this.searchString));
+      return bookmarks.filter(bookmark => bookmark.name.toLowerCase().includes(this.searchString)
+        || bookmark.url.toLowerCase().includes(this.searchString));
     }
     return bookmarks;
   }
