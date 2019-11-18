@@ -8,18 +8,13 @@ const routes = [
   {
     path: '/',
     name: 'bookmarks',
+    meta: { requiresAuth: true },
     component: Bookmarks,
   },
   {
     path: '/auth',
     name: 'auth',
     component: () => import(/* webpackChunkName: "auth" */ '../views/Auth.vue'),
-  },
-  {
-    path: '/about',
-    name: 'about',
-    meta: { requiresAuth: true },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
 ];
 

@@ -21,6 +21,7 @@
       </template>
       <mat-list>
         <mat-list-item  @click="$emit('delete', bookmark)">
+          <i class="menu-icon fas fa-trash"></i>
           Delete
         </mat-list-item>
       </mat-list>
@@ -70,6 +71,7 @@ export default class Bookmark extends Vue {
 
   onDeleteFinished() {
     this.$emit('deleted', this.bookmark);
+    this.menu = false;
   }
 }
 </script>
@@ -89,6 +91,9 @@ export default class Bookmark extends Vue {
       flex: 1;
       font-size: 14px;
       margin-left: 15px;
+    }
+    .menu-icon {
+      margin-right: 15px;
     }
   }
 </style>

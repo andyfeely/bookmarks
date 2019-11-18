@@ -7,7 +7,11 @@
         <br>
         <mat-input v-model="url" placeholder="URL" />
         <br>
-        <mat-button :disabled="loading" @click="mutate">Create Todo</mat-button>
+        <mat-button
+          :disabled="loading"
+          @click="mutate"
+          color="light-blue-2"
+        >Save</mat-button>
       </template>
     </amplify-connect>
   </div>
@@ -38,7 +42,10 @@ export default {
     },
   },
   methods: {
-    onCreateFinished() {},
+    onCreateFinished() {
+      this.name = '';
+      this.url = '';
+    },
   },
 };
 </script>

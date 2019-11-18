@@ -6,7 +6,12 @@
       color="blue-grey-2"
     >
       <mat-nav-link @click="() => sidebar = !sidebar">
-        Bookmarks
+        <mat-logo>
+          Bookmarks
+        </mat-logo>
+      </mat-nav-link>
+      <mat-nav-link>
+        <auth-menu/>
       </mat-nav-link>
     </mat-toolbar>
     <mat-container
@@ -26,7 +31,7 @@
       <mat-container
         height="100%"
         width="100%"
-        color="blue-grey-5"
+        color="blue-grey-3"
       >
         <mat-container max-width="720px">
           <router-view/>
@@ -38,8 +43,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import AuthMenu from '@/components/AuthMenu.vue';
 
 @Component({
+  components: { AuthMenu },
 })
 export default class App extends Vue {
   sidebar = false;

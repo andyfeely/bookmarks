@@ -51,11 +51,10 @@ export default class AuthComponent extends Vue {
     menu: boolean = false;
 
     async created() {
-      this.getUser();
       Hub.listen('auth', ({ payload: { event, data } }) => {
         switch (event) {
           case 'signIn':
-            this.getUser();
+            this.$router.push('/');
             break;
           case 'signOut':
             this.username = '';
@@ -74,17 +73,6 @@ export default class AuthComponent extends Vue {
       // @ts-ignore
       // eslint-disable-next-line
       Auth.federatedSignIn({ provider: 'Google' });
-    }
-
-    getUser() {
-      Auth.currentUserInfo()
-        .then((data) => {
-          if (data) {
-            this.loggedIn = true;
-            this.username = data.attributes.name;
-            this.picture = data.attributes.picture;
-          }
-        });
     }
 }
 

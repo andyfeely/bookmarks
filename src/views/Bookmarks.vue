@@ -2,7 +2,7 @@
   <div class="home">
     <mat-modal v-model="showCreate">
       <mat-card
-        color="primary-5"
+        color="support-3"
         round="3"
       >
         <mat-container padding="15px">
@@ -11,14 +11,22 @@
       </mat-card>
     </mat-modal>
     <mat-container padding="15px">
-      <mat-button @click="showCreate = true">
-        New
-      </mat-button>
-      <br>
+      <div class="actions">
+        <mat-input
+          v-model="searchString"
+          placeholder="Search"
+        />
+        <mat-button
+          @click="showCreate = true"
+          color="light-blue-2"
+        >
+          New
+        </mat-button>
+      </div>
       <br>
       <mat-list>
         <mat-list-item
-          v-for="bookmark in listBookmarks ? listBookmarks.items : []"
+          v-for="bookmark in bookmarks"
           :key="bookmark.id"
         >
           <bookmark
@@ -65,6 +73,8 @@ export default class Bookmarks extends Vue {
 
   showCreate = false;
 
+  searchString = '';
+
   created() {
     Auth.currentAuthenticatedUser()
       .then((data: any) => {
@@ -107,6 +117,16 @@ export default class Bookmarks extends Vue {
       });
   }
 
+  get bookmarks() {
+    // @ts-ignore
+    const bookmarks = this.listBookmarks ? this.listBookmarks.items : [];
+    if (this.searchString) {
+      // @ts-ignore
+      return bookmarks.filter(bookmark => bookmark.name.toLowerCase().includes(this.searchString));
+    }
+    return bookmarks;
+  }
+
   deleteBookmark(bookmark: any) {
     this.$apollo.mutate({
       mutation: gql(deleteBookmark),
@@ -142,3 +162,15 @@ export default class Bookmarks extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .home {
+    .actions {
+      display: flex;
+      :first-child {
+        flex: 1;
+        margin-right: 15px;
+      }
+    }
+  }
+</style>
