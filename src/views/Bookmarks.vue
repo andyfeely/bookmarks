@@ -243,9 +243,7 @@ export default class Bookmarks extends Vue {
       //   __typename: 'Mutation',
       //   deleteBookmark: bookmark,
       // },
-    }).then((res) => {
-      console.log(res);
-    });
+    }).then(() => {});
   }
 }
 </script>
