@@ -165,7 +165,7 @@ export default class Bookmarks extends Vue {
     if (this.searchString) {
       const searchString = this.searchString.toLowerCase();
       // eslint-disable-next-line
-      return this.bookmarksWithDomain.filter(bookmark => bookmark.name.toLowerCase().includes(searchString)
+      return this.bookmarksWithDomain.filter((bookmark: any) => bookmark.name.toLowerCase().includes(searchString)
         || bookmark.url.toLowerCase().includes(searchString));
     }
     return this.bookmarksWithDomain;

@@ -3,7 +3,8 @@
     <mat-toolbar
       :no-padding="true"
       z-index="5"
-      color="blue-grey-2"
+      color="blue-grey-1"
+      size="lg"
     >
       <mat-nav-link @click="() => sidebar = !sidebar">
         <mat-logo>
@@ -31,7 +32,8 @@
       <mat-container
         height="100%"
         width="100%"
-        color="blue-grey-3"
+        color="blue-grey-1"
+        gradient="blue-grey-2"
       >
         <mat-container max-width="720px">
           <router-view/>
@@ -62,7 +64,7 @@ export default class App extends Vue {
 #app {
   height: 100%;
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 75px 1fr;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
