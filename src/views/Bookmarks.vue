@@ -150,7 +150,7 @@ export default class Bookmarks extends Vue {
         return bookmark;
       }
     })
-      .sort((a, b) => {
+      .sort((a: any, b: any) => {
         if (a.hostname < b.hostname) {
           return -1;
         }
