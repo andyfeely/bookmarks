@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@materiajs/vue-materia": "^0.1.26",
+    "@materiajs/vue-materia": "^0.1.27",
     "aws-amplify": "^1.2.2",
     "aws-amplify-vue": "^0.3.2",
     "aws-appsync": "^2.0.1",

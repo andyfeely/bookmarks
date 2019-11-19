@@ -24,6 +24,10 @@
           <i class="menu-icon fas fa-trash"></i>
           Delete
         </mat-list-item>
+        <mat-list-item  @click="onClickEdit">
+          <i class="menu-icon fas fa-trash"></i>
+          Edit
+        </mat-list-item>
       </mat-list>
       <amplify-connect
         :mutation="deleteBookmarkMutation"
@@ -72,6 +76,11 @@ export default class Bookmark extends Vue {
   onDeleteFinished() {
     this.$emit('deleted', this.bookmark);
     this.menu = false;
+  }
+
+  onClickEdit() {
+    this.menu = false;
+    this.$emit('edit', this.bookmark);
   }
 }
 </script>
